@@ -1,0 +1,33 @@
+POST http://localhost:1234/new
+Content-Type: application/json
+
+{
+    "name":"Noodles",
+    "classify":"Egg",
+    "price":120,
+    "quantity":0.5
+}
+
+###
+
+GET http://localhost:1234/view
+
+###
+GET http://localhost:1234/class/Egg
+
+
+###
+PUT http://localhost:1234/change
+Content-Type: application/json
+
+{
+    "_id": "659bc31fc6ad1ce8fbbacc8d",
+    "name": "Dosa",
+    "price": 30,
+    "quantity": 1,
+    "classify": "Egg",
+    "__v": 0
+}
+
+###
+DELETE http://localhost:1234/remove/659bbef03a1900c2d1582430

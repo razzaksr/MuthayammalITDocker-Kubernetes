@@ -1,0 +1,195 @@
+Web applications:
+	Front end/ presentation:
+		HTML, CSS, Bootstrap, Java script, JQuery
+		Thymeleaf, Jinja, React, Angular, Razor, PHP
+	Back end/ Business :
+		Programming:
+			Java Script, PHP, Dot net, Python, Java,..
+		Frameworks:
+			Express.js, Node, Spring, Hibernate, EntityFramework, DJnago, Flask,
+	Data :
+		SQL: MySQL, Oracle, PostgreSQL, MS SQL
+		NoSQL: Mongodb, Oracle
+
+
+Development Process:
+	Environments/Configurations:
+		Node.js
+		Express.js backend server
+		Rest API>> JSON
+		Mongodb
+	Tools:
+		VS Code
+
+Developers:
+	Source code, test reports, dependencies, config, 	deployment file
+Operations:
+	
+		
+Deployment Process:
+	war, jar,exe,
+
+
+
+Docker:
+	Virtualization tool:
+		Virtual Machine
+		Docker
+	Image:
+		Source code, test reports, dependencies, 			config, 	deployment file
+	Container:
+		instance of the image
+
+	install:
+		Docker desktop
+	Feature to enable in windows OS:
+		windows Subsystem for Linux >> WSL
+		windows hyperviser platform
+
+docker server/ engine:
+	docker cli
+	docker desktop
+
+docker registries: images
+	public: dockerhub:	
+		signup and create private registries
+	private: AWS, GCP, Azure
+
+1. MongoDB Image:
+Database:
+	Server
+	Tool/ Client: mongosh, compass
+
+mongodb:				SQL
+	database			database
+	collections		table
+	fields			columns
+	documents		rows/records
+
+kyc:table
+account_number 	acc_holder	acc_bal
+87656789		Razak		89094.4
+876578			Annamalai	894.3
+
+kyc:collection
+document:1
+{
+	"acc_num":987678,
+	"acc_holder":"Razak",
+}
+
+document:2
+{
+	"account_number":45678,
+	"acc_bal":7133.5
+}
+
+insert>> insertOne({})
+update> updateOne({key},{body})
+delete> deleteOne({key})
+view> find(), find().pretty(), find({condition})
+
+
+
+1. view available images:
+docker images
+
+2. pull any image from dockerhub 
+docker pull image:tagname
+eg:
+docker pull mongo:latest
+
+3. view containers
+docker container ls
+docker ps
+
+4. run containers:
+docker run image:tag
+docker run --name CONTAINER_NAME image:tag
+eg:
+docker run -d -p 27017:27017 --name symitech -v /data/db:/data/db mongo:latest
+
+/data/db	>> storage inside the container
+
+to work in mongo:
+	1. open mongosh inside the container:
+		docker exec -it symitech bash
+		mongosh
+		view databases:
+			show dbs
+		create/ switch to database:
+			use mec
+		view collections insdie the database:
+			show collections
+		insert/ create new collection:
+			db.dish.insertOne({"name":"Biriyani","type":"chicken","price":200,"quantity":0.5});
+
+		View documents:
+			db.dish.find()
+	2. open mongosh outside the container
+		find the ip address:
+			docker inspect symitech
+		run mongodb:
+			mongosh localhost:27017
+
+to stop container:
+docker stop picconet
+
+to remove container:
+docker rm picconet
+docker rm symitech
+
+to remove image:
+docker rmi mongo:latest
+
+
+
+Backend:
+	url mapping
+	actions:
+		GET, POST, DELETE, PUT
+	port:
+	
+request		>> url, url+parameter	>> http://localhost:1234?name=nike
+	header
+	body
+	paramater
+response:
+	body
+	status code: 404, 400, 500, 200, 201
+
+
+Developing an express app with mongo db:
+1. create a project:
+	npm init -y
+	
+	node_modules
+	package.json
+	package-lock.json
+	
+
+2. install required libraries
+	npm i express cors nodemon mongoose 
+3. CRUD operation
+
+4. Dockerfile for create my app into docker image
+
+5. build image
+docker build  -t ANY_NAME:TAG .
+
+6. Compose:
+docker-compose.yaml
+
+7. docker-compose build
+
+
+Push to the docker hub:
+1. build docker image:
+docker build -t REPOSITORY/IMAGE:TAG
+
+docker build -t razzaksr/it:latest
+
+2. signup dockerhub account and login
+docker login
+
+3. docker push razzaksr/it:latest
